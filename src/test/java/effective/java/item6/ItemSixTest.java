@@ -34,15 +34,19 @@ public class ItemSixTest {
     @Test
     public void testGoodWithBadSolution() {
 
+
         final String ROMAN_NUMBER_EXAMPLE = "MCMXXXIV";
         Integer times = 10000;
+
         final Long timeTakesBad = getAndRunTimeBadSolution(times, ROMAN_NUMBER_EXAMPLE);
         final Long timeTakesGood = getRunTimeGoodSolution(times, ROMAN_NUMBER_EXAMPLE);
+
         Long diffTimeTakes = timeTakesBad - timeTakesGood;
         Long durationInMs = TimeUnit.MILLISECONDS.convert(diffTimeTakes, TimeUnit.NANOSECONDS);
         System.out.println("Bad solution time: " + timeTakesBad + " pico second");
         System.out.println("Good solution time: " + timeTakesGood + " pico second");
         System.out.println("Diff of solution times in milli sec: " + durationInMs);
+
         Assertions.assertTrue(timeTakesBad > timeTakesGood);
     }
 }
